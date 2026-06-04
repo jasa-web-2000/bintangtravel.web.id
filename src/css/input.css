@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../src/font/inter.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../../src/font/poppins-bold.ttf") format("truetype");
+}
+
+@theme inline {
+  --font-inter: "Inter", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+
+  --color-primary: #104590;
+  --color-secondary: #399fdb;
+}
+
+h1,
+h2,
+h3 {
+  @apply font-poppins;
+}
