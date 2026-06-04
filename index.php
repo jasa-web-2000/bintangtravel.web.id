@@ -7,13 +7,20 @@ $css = $domain . 'src/css/';
 $js = $domain . 'src/js/';
 
 $brand = 'Bintang Travel Cianjur & Sukabumi';
-$logo = $img . 'logo.jpeg';
+$logo = $img . 'logo.webp';
 $title = $brand . ' Menawarkan Travel Cianjur & Sukabumi ke Jabodetabek & Bandara Soetta';
 $desc = $brand . ' adalah travel antar kota dari Cianjur Sukabumi ke Jabodetabek & Bandara Soetta';
 
-$alamat = 'Kab. Garut, Jawa Barat';
-$phone = '+62 895-2679-3728';
-$whatsapp = 'https://wa.me/' . preg_replace('/[^0-9]/', '', $phone) . '?text=Halo+admin+' . $brand . '%0A%0A' . $domain;
+$alamat = 'Kab. Cianjur, Jawa Barat';
+$phone = '+62 831-1260-1313';
+$currentUrl = (isset($_SERVER['HTTPS']) ? 'https' : 'http')
+  . '://' . $_SERVER['HTTP_HOST']
+  . $_SERVER['REQUEST_URI'];
+
+$whatsapp = 'https://wa.me/' . preg_replace('/[^0-9]/', '', $phone)
+  . '?text=' . urlencode(
+    "Halo admin $brand\n\n$currentUrl"
+  );
 
 $menu = [
   ['Beranda', '#'],
@@ -25,10 +32,10 @@ $menu = [
 ];
 
 $kelebihan = [
-  'Dijemput langsung dari rumah',
-  'Armada Avanza & Innova terbaru',
-  'Driver profesional & ramah',
-  'Harga kompetitif & transparan'
+  'Jemput Antar Door to Door',
+  'Armada Bersih & Nyaman',
+  'Driver Berpengalaman',
+  'Harga Dijamin Terjangkau'
 ];
 
 $kekurangan = [
@@ -51,10 +58,82 @@ $kekurangan = [
 ];
 
 $rute = [
-  ['Garut - Jabodetabek', 'Garut - Bandara Soetta', 'garut.webp'],
-  ['Bandung - Jabodetabek', 'Bandung - Bandara Soetta', 'bandung.jpg'],
-  ['Sumedang - Jabodetabek', 'Sumedang - Bandara Soetta', 'sumedang.webp'],
-  ['Tasikmalaya - Jabodetabek', 'Tasikmalaya - Bandara Soetta', 'tasik.jpg'],
+  [
+    'kota' => 'Cianjur - Jabodetabek',
+    'rute' => [
+      'Cianjur ke Jabodetabek',
+      'Jabodetabek ke Cianjur',
+    ],
+    'gambar' => 'cianjur.webp',
+  ],
+  [
+    'kota' => 'Sukabumi - Jabodetabek',
+    'rute' => [
+      'Sukabumi ke Jabodetabek',
+      'Jabodetabek ke Sukabumi',
+    ],
+    'gambar' => 'sukabumi.webp',
+  ],
+  [
+    'kota' => 'Jakarta ke Cianjur & Sukabumi',
+    'rute' => [
+      'Jakarta ke Cianjur',
+      'Cianjur ke Jakarta',
+      'Jakarta ke Sukabumi',
+      'Sukabumi ke Jakarta',
+    ],
+    'gambar' => 'jakarta.webp',
+  ],
+  [
+    'kota' => 'Bandara Soetta ke Cianjur & Sukabumi',
+    'rute' => [
+      'Bandara Soetta ke Cianjur',
+      'Cianjur ke Bandara Soetta',
+      'Bandara Soetta ke Sukabumi',
+      'Sukabumi ke Bandara Soetta',
+    ],
+    'gambar' => 'soetta.webp',
+  ],
+  [
+    'kota' => 'Bogor ke Cianjur & Sukabumi',
+    'rute' => [
+      'Bogor ke Cianjur',
+      'Cianjur ke Bogor',
+      'Bogor ke Sukabumi',
+      'Sukabumi ke Bogor',
+    ],
+    'gambar' => 'bogor.webp',
+  ],
+  [
+    'kota' => 'Depok ke Cianjur & Sukabumi',
+    'rute' => [
+      'Depok ke Cianjur',
+      'Cianjur ke Depok',
+      'Depok ke Sukabumi',
+      'Sukabumi ke Depok',
+    ],
+    'gambar' => 'depok.webp',
+  ],
+  [
+    'kota' => 'Tangerang ke Cianjur & Sukabumi',
+    'rute' => [
+      'Tangerang ke Cianjur',
+      'Cianjur ke Tangerang',
+      'Tangerang ke Sukabumi',
+      'Sukabumi ke Tangerang',
+    ],
+    'gambar' => 'tangerang.webp',
+  ],
+  [
+    'kota' => 'Bekasi ke Cianjur & Sukabumi',
+    'rute' => [
+      'Bekasi ke Cianjur',
+      'Cianjur ke Bekasi',
+      'Bekasi ke Sukabumi',
+      'Sukabumi ke Bekasi',
+    ],
+    'gambar' => 'bekasi.webp',
+  ],
 ];
 
 $solusi = [
@@ -72,62 +151,66 @@ $solusi = [
 
 $armada = [
   [
-    'armada-1.jpeg',
-    'Armada 1',
+    'avanza.webp',
+    'Mobil Avanza',
     'Fasilitas AC Dingin,
     Reclining Seat.'
   ],
   [
-    'armada-2.jpg',
-    'Armada 2',
+    'calya.webp',
+    'Mobil Calya',
     'Pilihan hemat untuk perjalanan tetap nyaman.'
   ],
   [
-    'armada-3.jpg',
-    'Armada 3',
+    'hiace.webp',
+    'Mobil Hiace',
     'Dijamin nyaman dan aman.'
   ],
 ];
 
 $testimoni = [
   [
-    "Perjalanan Travel dari Garut ke Jakarta terasa nyaman dan aman. Supirnya sopan, nyetir halus, jadi tidak capek di jalan.",
-    "Dedi - Karyawan Swasta"
+    "Saya sering bepergian untuk urusan kerja dan layanan ini selalu bisa diandalkan. Driver tepat waktu, kendaraan nyaman, dan perjalanan terasa lebih praktis.",
+    "Andi Pratama - Staf Administrasi"
   ],
   [
-    "Sudah beberapa kali pakai travel dari $brand, selalu tepat waktu dan dijemput sampai depan rumah. Sangat membantu!",
-    "Siti - Ibu Rumah Tangga"
+    "Proses pemesanan sangat mudah dan respon admin cepat. Saya dijemput sesuai jadwal dan diantar sampai tujuan tanpa kendala.",
+    "Maya Lestari - Pegawai Bank"
   ],
   [
-    "Harga terjangkau tapi fasilitasnya mantap. Cocok buat yang sering bolak-balik antar kota tanpa ribet.",
-    "Rizky - Mahasiswa"
+    "Armadanya bersih, AC dingin, dan perjalanan nyaman dari awal sampai akhir. Cocok untuk yang ingin bepergian tanpa repot.",
+    "Rian Saputra - Wirausaha"
+  ],
+  [
+    "Saya rutin menggunakan Travel rute Cianjur - Jakarta. Selama ini pelayanannya memuaskan, penjemputan tepat waktu, dan perjalanan selalu nyaman.",
+    "Rahmat Nugraha - Teknisi"
   ],
 ];
 
 $faq = [
   [
-    'Apakah layanan ini antar jemput langsung ke rumah?',
-    'Ya, kami menyediakan layanan door to door. Driver akan menjemput dan mengantar Anda langsung ke alamat tujuan selama masih dalam area operasional kami.',
+    'Apakah tersedia layanan travel door to door?',
+    'Ya, ' . $brand . ' menyediakan layanan travel door to door dengan penjemputan langsung dari alamat Anda dan pengantaran sampai tujuan. Layanan ini membuat perjalanan lebih praktis tanpa perlu datang ke terminal atau titik kumpul tertentu.',
   ],
   [
-    'Apakah bisa melakukan pemesanan mendadak?',
-    'Bisa, selama kursi masih tersedia. Namun, kami menyarankan untuk booking minimal H-1 agar Anda mendapatkan jadwal yang diinginkan.',
+    'Bisakah saya memesan travel secara mendadak?',
+    'Tentu. Pemesanan mendadak tetap dapat kami layani selama kursi masih tersedia. Namun, untuk memastikan ketersediaan jadwal dan armada, kami menyarankan melakukan reservasi minimal satu hari sebelum keberangkatan.',
   ],
   [
-    'Berapa banyak barang yang boleh dibawa?',
-    'Setiap penumpang diperbolehkan membawa 1 koper atau tas besar dan 1 tas kecil. Jika membawa barang lebih, silakan konfirmasi saat pemesanan.',
+    'Berapa batas bagasi yang diperbolehkan?',
+    'Setiap penumpang dapat membawa satu koper atau tas besar serta satu tas kecil. Jika Anda membawa barang dalam jumlah lebih banyak atau berukuran besar, silakan informasikan kepada admin saat melakukan pemesanan.',
   ],
   [
-    'Apakah jadwal keberangkatan tersedia setiap hari?',
-    'Ya, kami melayani perjalanan setiap hari dengan beberapa pilihan jadwal. Silakan hubungi admin untuk informasi jadwal terbaru.',
+    'Apakah layanan travel beroperasi setiap hari?',
+    'Ya, layanan travel kami tersedia setiap hari untuk berbagai rute. Jadwal keberangkatan dapat berbeda tergantung tujuan dan ketersediaan armada. Hubungi admin untuk mendapatkan informasi jadwal terbaru.',
   ],
   [
-    'Bagaimana cara melakukan pemesanan?',
-    'Pemesanan dapat dilakukan melalui WhatsApp atau telepon ke nomor ' . $phone . '. Tim kami akan membantu proses booking dengan cepat dan mudah.',
+    'Bagaimana cara memesan travel?',
+    'Pemesanan dapat dilakukan dengan mudah melalui WhatsApp atau telepon ke nomor ' . $phone . '. Tim customer service kami siap membantu proses booking, konfirmasi jadwal, hingga informasi tarif perjalanan.',
   ],
   [
-    'Apakah tersedia layanan untuk rombongan atau charter?',
-    'Ya, kami menyediakan layanan charter untuk kebutuhan pribadi, keluarga, maupun rombongan dengan harga yang kompetitif.',
+    'Apakah tersedia layanan charter atau sewa mobil?',
+    'Ya, selain layanan travel reguler, kami juga menyediakan layanan charter atau sewa mobil untuk perjalanan pribadi, keluarga, wisata, perjalanan dinas, maupun kebutuhan rombongan dengan harga yang kompetitif.',
   ],
 ];
 
@@ -199,11 +282,11 @@ $faq = [
       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-  <nav class="bg-white border-b border-slate-100 sticky top-0 z-100">
+  <nav class="bg-white border-b border-slate-100 py-2 sticky top-0 z-100">
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex justify-between items-center h-20">
         <a href="<?= $domain ?>" class="flex items-center gap-2">
-          <img src="<?= $logo ?>" class="w-16 rounded" loading="lazy" alt="Logo <?= $brand ?>">
+          <img src="<?= $logo ?>" class="w-14 rounded" loading="lazy" alt="Logo <?= $brand ?>">
         </a>
 
         <div class="hidden lg:flex items-center gap-8">
@@ -260,7 +343,7 @@ $faq = [
       </div>
 
       <div class="relative">
-        <img loading="lazy" src="<?= $img ?>hero.webp" alt="Jasa Travel Terbaik" class="rounded-2xl shadow-2xl" />
+        <img loading="lazy" src="<?= $img ?>hero.webp" alt="Jasa Travel Terbaik" class="rounded-2xl shadow-2xl brightness-75" />
         <div class="absolute -bottom-5 -left-5 bg-white p-4 rounded-xl shadow-xl flex items-center gap-3">
           <div class="bg-orange-100 text-primary w-12 h-12 rounded-full flex items-center justify-center text-xl">
             <i class="fa-solid fa-star"></i>
@@ -304,8 +387,7 @@ $faq = [
           yang membutuhkan kenyamanan, keamanan, dan ketepatan waktu.
         </p>
         <p class="text-slate-600 mb-8 leading-relaxed">
-          Kini, kami bangga menjadi salah satu <a href="https://jasatravel.web.id/" target="_blank" class="underline">jasa travel</a> terpercaya yang menghubungkan <?= $brand ?> dengan berbagai
-          kota besar lainnya, dengan tetap mengedepankan pelayanan ramah dan profesional khas daerah kami.
+          Sebagai <a href="https://jasatravel.web.id/" target="_blank" class="underline">jasa travel</a> yang melayani berbagai rute perjalanan, <?= $brand ?> berkomitmen menghadirkan layanan door to door yang memudahkan pelanggan tanpa perlu repot berpindah kendaraan. Kepuasan dan kenyamanan penumpang selalu menjadi prioritas utama dalam setiap perjalanan yang kami layani.
         </p>
         <div class="grid grid-cols-2 gap-6">
           <div>
@@ -313,13 +395,13 @@ $faq = [
             <p class="text-slate-500 text-sm">Beroperasi Sejak</p>
           </div>
           <div>
-            <h4 class="text-2xl font-bold text-primary"><?= $brand ?></h4>
+            <h4 class="text-2xl font-bold text-primary"><?= explode(',', $alamat)[0] ?></h4>
             <p class="text-slate-500 text-sm">Kantor Pusat</p>
           </div>
         </div>
       </div>
       <div class="rounded-3xl overflow-hidden shadow-2xl transition-transform duration-500">
-        <img loading="lazy" src="<?= $img ?>tentang-kami.jpeg" alt="tentang <?= $brand ?>" />
+        <img loading="lazy" src="<?= $img ?>tentang-kami.webp" alt="tentang <?= $brand ?>" />
       </div>
     </div>
   </section>
@@ -335,14 +417,19 @@ $faq = [
 
         <?php foreach ($rute as $key => $value) : ?>
           <div class="group relative overflow-hidden rounded-2xl shadow-lg">
-            <img loading="lazy" src="<?= $img . $value[2] ?>"
-              class="brightness-50 group-hover:brightness-75 w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500" alt="Travel <?= $value[0] ?>" />
+            <img loading="lazy" src="<?= $img . 'daerah/' . $value['gambar'] ?>"
+              class="brightness-50 group-hover:brightness-75 w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500" alt="Travel <?= $value['kota'] ?>" />
             <div
-              class="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
-              <h3 class="text-white text-2xl font-bold">Travel <?= explode(' ', $value[0])[0] ?></h3>
-              <p class="text-slate-300 text-sm my-1"><?= $value[0] ?> (PP)</p>
-              <p class="text-slate-300 text-sm mb-4"><?= $value[1] ?> (PP)</p>
-              <div class="flex justify-between items-center">
+              class="absolute inset-0 bg-linear-to-t from-black/95 via-black/40 to-transparent flex flex-col justify-end p-6">
+              <h3 class=text-white text-2xl font-bold mb-2 text-shadow-lg ">Travel <?= $value['kota'] ?></h3>
+              <ul >
+                <?php foreach ($value['rute'] as $r): ?>
+                  <li class=" before:content-['🚗'] before:mx-2 text-slate-300 text-sm my-1 text-shadow-md mb-1.5">
+                <?= htmlspecialchars($r) ?>
+                </li>
+              <?php endforeach; ?>
+              </ul>
+              <div class="flex justify-between items-center my-4">
                 <span class="text-secondary font-bold">Mulai Rp ⚹⚹⚹ rb</span>
                 <span class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-md">Setiap Hari</span>
               </div>
@@ -363,7 +450,7 @@ $faq = [
       <div>
         <h2 class="text-3xl font-bold mb-6 text-primary">Solusi Perjalanan Praktis</h2>
         <p class="text-slate-600 mb-8 text-lg">
-          Lupakan keramaian terminal. Bersama <?= $brand ?>, perjalanan Anda dimulai tepat di depan pintu rumah Anda. Kami fokus pada rute Jabodetabek, terutama rute <a href="https://biotrans.id/rute/travel-garut-jakarta/" target="_blank" class="underline">Travel Garut Jakarta</a>.
+          Tidak perlu repot ke terminal atau berpindah kendaraan. Bersama <?= $brand ?>, nikmati layanan travel door to door yang praktis, nyaman, dan tepat waktu dari Cianjur menuju berbagai wilayah Jabodetabek. Kami melayani berbagai rute populer, terutama <a href="https://biotrans.id/rute/travel-cianjur-jakarta/" target="_blank" class="underline">Travel Cianjur Jakarta</a>, dengan penjemputan langsung dari lokasi Anda dan pengantaran sampai tujuan.
         </p>
 
         <div class="space-y-6">
@@ -396,7 +483,7 @@ $faq = [
       <div class="grid md:grid-cols-3 gap-8 text-left">
         <?php foreach ($armada as $key => $value) : ?>
           <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-            <img loading="lazy" src="<?= $img . $value[0] ?>" class="w-full aspect-4/4 object-cover" alt="Armada <?= $value[1] ?>" />
+            <img loading="lazy" src="<?= $img . 'armada/' . $value[0] ?>" class="w-full aspect-4/4 object-cover" alt="Armada <?= $value[1] ?>" />
             <div class="p-6">
               <!-- <h3 class="font-bold text-xl mb-2"><?= $value[1] ?></h3> -->
               <p class="text-slate-600 text-sm mb-4"><?= $value[2] ?></p>
@@ -413,7 +500,7 @@ $faq = [
     <div class=" max-w-6xl mx-auto px-6 text-center">
       <h2 class="text-3xl font-bold mb-12">Apa Kata Penumpang Kami</h2>
 
-      <div class="grid md:grid-cols-3 gap-8">
+      <div class="grid md:grid-cols-2 gap-8">
         <?php foreach ($testimoni as $key => $value) : ?>
           <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 text-left relative">
             <i class="fa-solid fa-quote-left text-blue-200 text-4xl absolute top-4 right-6"></i>
@@ -438,7 +525,7 @@ $faq = [
     </div>
   </section>
 
-  <section class="py-24 bg-linear-to-br from-secondary to-secondary/60 text-white text-center">
+  <section class="py-24 px-6 bg-linear-to-br from-secondary to-secondary/60 text-white text-center">
     <h2 class="text-4xl font-bold mb-6">Siap Berangkat Hari Ini?</h2>
     <p class="text-xl mb-10 opacity-90">Amankan kursi Anda sekarang sebelum kehabisan!</p>
 
@@ -468,8 +555,8 @@ $faq = [
     </div>
   </section>
 
-  <footer class="bg-slate-900 text-white py-12">
-    <div class=" max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10 items-center text-center md:text-left">
+  <footer class="bg-slate-900 text-white py-12 px-6">
+    <div class=" max-w-6xl mx-auto grid md:grid-cols-3 gap-10 items-center text-center md:text-left">
       <div>
         <img src="<?= $logo ?>" class="w-16 rounded mx-auto md:mx-0" loading="lazy" alt="Logo <?= $brand ?>">
         <h3 class="text-2xl font-bold my-4"><?= $brand ?></h3>
@@ -492,6 +579,8 @@ $faq = [
         <a href="#" class="text-slate-400 hover:text-white"><i class="fa-brands fa-facebook"></i></a>
         <a href="#" class="text-slate-400 hover:text-white"><i class="fa-brands fa-tiktok"></i></a>
       </div> -->
+
+      <iframe class="col-span-full w-full rounded-lg brightness-50 hover:brightness-95" src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d126758.66729780428!2d107.087067!3d-6.8656176!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwNTMnNDcuNSJTIDEwN8KwMDcnMjYuMCJF!5e0!3m2!1sid!2sid!4v1780582968079!5m2!1sid!2sid" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <div class="mt-12 pt-8 border-t border-slate-800 text-center text-slate-400">
       <p>© <?= $brand ?>. Dikembangkan oleh <a target="_blank" class="underline" href="https://dionzebua.com">Dion Zebua</a>.</p>
