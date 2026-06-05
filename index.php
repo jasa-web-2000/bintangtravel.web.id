@@ -1,5 +1,5 @@
 <?php
-$domain = 'http://192.168.1.5/bintangtravel.web.id/';
+// $domain = 'http://192.168.1.5/bintangtravel.web.id/';
 $domain = 'https://bintangtravel.web.id/';
 
 $img = $domain . 'src/img/';
@@ -13,13 +13,10 @@ $desc = $brand . ' adalah travel antar kota dari Cianjur Sukabumi ke Jabodetabek
 
 $alamat = 'Kab. Cianjur, Jawa Barat';
 $phone = '+62 831-1260-1313';
-$currentUrl = (isset($_SERVER['HTTPS']) ? 'https' : 'http')
-  . '://' . $_SERVER['HTTP_HOST']
-  . $_SERVER['REQUEST_URI'];
 
 $whatsapp = 'https://wa.me/' . preg_replace('/[^0-9]/', '', $phone)
   . '?text=' . urlencode(
-    "Halo admin $brand\n\n$currentUrl"
+    "Halo admin $domain"
   );
 
 $menu = [
